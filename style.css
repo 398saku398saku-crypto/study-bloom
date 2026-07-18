@@ -985,22 +985,18 @@ color:#ddd;
     border:2px solid #ffd5e5;
 
 }
-body input,
-body textarea,
-body select{
+/* ライトモードのナビ文字 */
+.nav,
+.nav span{
 
-    background:#fff8fc !important;
-    color:#333 !important;
-    border:2px solid #ffd5e5 !important;
+    color:#444 !important;
 
 }
 
-body.dark input,
-body.dark textarea,
-body.dark select{
+/* 選択中だけ白 */
+.nav.active,
+.nav.active span{
 
-    background:#fff8fc !important;
-    color:#333 !important;
-    border:2px solid #ffd5e5 !important;
+    color:white !important;
 
 }
