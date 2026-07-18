@@ -241,6 +241,8 @@ gap:8px;
 
 font-size:15px;
 
+color:#444;
+
 transition:.25s;
 
 box-shadow:var(--shadow);
