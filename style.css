@@ -976,10 +976,7 @@ body.dark footer{
 color:#ddd;
 
 }
-/* 入力欄をかわいく */
-input,
-textarea,
-select{
+
 
     background:#fff8fc;
 
@@ -987,21 +984,23 @@ select{
 
     border:2px solid #ffd5e5;
 
-    border-radius:12px;
+}
+body input,
+body textarea,
+body select{
 
-    padding:10px;
+    background:#fff8fc !important;
+    color:#333 !important;
+    border:2px solid #ffd5e5 !important;
 
 }
 
-/* ダークモードでも見やすく */
 body.dark input,
 body.dark textarea,
 body.dark select{
 
-    background:#fff8fc;
-
-    color:#333;
-
-    border:2px solid #ffd5e5;
+    background:#fff8fc !important;
+    color:#333 !important;
+    border:2px solid #ffd5e5 !important;
 
 }
