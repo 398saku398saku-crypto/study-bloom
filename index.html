@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Study Bloom</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="app">
+
+<header>
+
+<div>
+
+<h1>🌸 Study Bloom</h1>
+
+<p>毎日の積み重ねを、かわいく記録しよう。</p>
+
+</div>
+
+<div class="countdown">
+
+<div class="small">
+
+共通テストまで
+
+</div>
+
+<div id="countdown">
+
+--
+
+</div>
+
+</div>
+
+</header>
+
+<nav>
+
+<button class="nav active" data-page="home">
+
+🏠
+
+<span>ホーム</span>
+
+</button>
+
+<button class="nav" data-page="study">
+
+📚
+
+<span>勉強</span>
+
+</button>
+
+<button class="nav" data-page="calendar">
+
+📅
+
+<span>カレンダー</span>
+
+</button>
+
+<button class="nav" data-page="books">
+
+📖
+
+<span>参考書</span>
+
+</button>
+
+<button class="nav" data-page="stats">
+
+📊
+
+<span>統計</span>
+
+</button>
+
+<button class="nav" data-page="settings">
+
+⚙️
+
+<span>設定</span>
+
+</button>
+
+</nav>
+
+<main>
+
+<section id="home" class="page active">
+
+<div class="hero">
+
+<h2>
+
+今日も未来の自分に一歩🌸
+
+</h2>
+
+<p id="todayDate"></p>
+
+<p id="dailyMessage"></p>
+
+</div>
+
+<div class="grid4">
+
+<div class="status">
+
+<h3>🔥連続</h3>
+
+<p id="streak">0日</p>
+
+</div>
+
+<div class="status">
+
+<h3>⏰今日</h3>
+
+<p id="todayStudy">0時間</p>
+
+</div>
+
+<div class="status">
+
+<h3>🌱成長</h3>
+
+<p id="flower">
+
+🌱
+
+</p>
+
+</div>
+
+<div class="status">
+
+<h3>😊気分</h3>
+
+<p id="todayMood">
+
+🙂
+
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+🎯 今日の目標
+
+</h2>
+
+<textarea id="goal"></textarea>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+📝 今日のメモ
+
+</h2>
+
+<textarea id="memo"></textarea>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+✅ 今日やること
+
+</h2>
+
+<label><input type="checkbox" id="task1"> 数学</label>
+
+<label><input type="checkbox" id="task2"> 英語</label>
+
+<label><input type="checkbox" id="task3"> 物理</label>
+
+<label><input type="checkbox" id="task4"> 復習</label>
+
+</div>
+
+</section>
+<section id="study" class="page">
+
+<div class="card">
+
+<h2>📚 今日の勉強</h2>
+
+<p class="description">
+
+今日取り組んだ内容を記録しよう！
+
+</p>
+
+<div class="subjectGrid">
+
+<label><input type="checkbox" id="math"> 数学</label>
+
+<label><input type="checkbox" id="english"> 英語</label>
+
+<label><input type="checkbox" id="physics"> 物理</label>
+
+<label><input type="checkbox" id="chemistry"> 化学</label>
+
+<label><input type="checkbox" id="japanese"> 国語</label>
+
+<label><input type="checkbox" id="information"> 情報</label>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>⏰ 勉強時間</h2>
+
+<div class="timeBox">
+
+<input type="number" id="hour" min="0" placeholder="時間">
+
+<span>時間</span>
+
+<input type="number" id="minute" min="0" max="59" placeholder="分">
+
+<span>分</span>
+
+</div>
+
+<p id="todayTotal">
+
+今日の合計：0時間0分
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>😊 今日の気分</h2>
+
+<select id="mood">
+
+<option>😆 最高！</option>
+
+<option>😊 いい感じ！</option>
+
+<option selected>🙂 普通</option>
+
+<option>🥲 少し疲れた</option>
+
+<option>😭 今日はしんどい</option>
+
+</select>
+
+</div>
+
+<div class="card">
+
+<h2>🍅 ポモドーロタイマー</h2>
+
+<div class="timer">
+
+<div id="timerDisplay">
+
+25:00
+
+</div>
+
+<div class="timerButtons">
+
+<button id="startTimer">
+
+▶ 開始
+
+</button>
+
+<button id="pauseTimer">
+
+⏸ 一時停止
+
+</button>
+
+<button id="resetTimer">
+
+🔄 リセット
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="calendar" class="page">
+
+<div class="card">
+
+<h2>📅 学習カレンダー</h2>
+
+<p class="description">
+
+勉強した日が色付きになるよ🌸
+
+</p>
+
+<div class="calendarHeader">
+
+<button id="prevMonth">
+
+◀
+
+</button>
+
+<h3 id="calendarTitle">
+
+2026年7月
+
+</h3>
+
+<button id="nextMonth">
+
+▶
+
+</button>
+
+</div>
+
+<div class="week">
+
+<span>月</span>
+
+<span>火</span>
+
+<span>水</span>
+
+<span>木</span>
+
+<span>金</span>
+
+<span>土</span>
+
+<span>日</span>
+
+</div>
+
+<div id="calendarGrid">
+
+</div>
+
+</div>
+
+</section>
+<section id="books" class="page">
+
+<div class="card">
+
+<h2>📖 参考書管理</h2>
+
+<p class="description">
+
+進み具合を記録しよう！
+
+</p>
+
+<div class="book">
+
+<h3>📘 青チャート</h3>
+
+<progress id="blueChart" value="0" max="100"></progress>
+
+<p id="blueChartText">0%</p>
+
+</div>
+
+<div class="book">
+
+<h3>📙 Vintage</h3>
+
+<progress id="vintage" value="0" max="100"></progress>
+
+<p id="vintageText">0%</p>
+
+</div>
+
+<div class="book">
+
+<h3>📗 セミナー物理</h3>
+
+<progress id="seminar" value="0" max="100"></progress>
+
+<p id="seminarText">0%</p>
+
+</div>
+
+<div class="book">
+
+<h3>📕 ターゲット1900</h3>
+
+<progress id="target" value="0" max="100"></progress>
+
+<p id="targetText">0%</p>
+
+</div>
+
+<button id="saveBooks">
+
+💾 進捗を保存
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>🎯 志望校</h2>
+
+<input
+type="text"
+id="dreamSchool"
+placeholder="志望校">
+
+<input
+type="number"
+id="targetScore"
+placeholder="目標偏差値">
+
+<textarea
+id="dreamMemo"
+placeholder="目標や志望理由を書こう！"></textarea>
+
+</div>
+
+</section>
+
+<section id="stats" class="page">
+
+<div class="card">
+
+<h2>📊 勉強統計</h2>
+
+<div class="statsGrid">
+
+<div class="stat">
+
+<h3>🔥 連続日数</h3>
+
+<p id="statStreak">0日</p>
+
+</div>
+
+<div class="stat">
+
+<h3>⏰ 合計勉強時間</h3>
+
+<p id="statTime">0時間</p>
+
+</div>
+
+<div class="stat">
+
+<h3>📅 今月</h3>
+
+<p id="monthTime">0時間</p>
+
+</div>
+
+<div class="stat">
+
+<h3>🏆 レベル</h3>
+
+<p id="level">
+
+Lv.1
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🏅 実績</h2>
+
+<div class="badgeGrid">
+
+<div class="badge">
+
+🌱
+
+<p>初めの一歩</p>
+
+</div>
+
+<div class="badge">
+
+📚
+
+<p>10時間達成</p>
+
+</div>
+
+<div class="badge">
+
+🔥
+
+<p>7日連続</p>
+
+</div>
+
+<div class="badge">
+
+🌸
+
+<p>100時間達成</p>
+
+</div>
+
+<div class="badge">
+
+🏆
+
+<p>目標達成</p>
+
+</div>
+
+<div class="badge">
+
+💖
+
+<p>毎日コツコツ</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+  <section id="settings" class="page">
+
+<div class="card">
+
+<h2>⚙️ 設定</h2>
+
+<p class="description">
+
+アプリの見た目やデータを管理できます✨
+
+</p>
+
+<div class="settingGroup">
+
+<button id="themeBtn">
+
+🎨 テーマ変更
+
+</button>
+
+<button id="darkBtn">
+
+🌙 ダークモード
+
+</button>
+
+</div>
+
+<div class="settingGroup">
+
+<button id="backupBtn">
+
+💾 データを書き出す
+
+</button>
+
+<button id="restoreBtn">
+
+📂 データを読み込む
+
+</button>
+
+</div>
+
+<div class="settingGroup">
+
+<button id="resetBtn" class="danger">
+
+🗑 データをリセット
+
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🎓 志望校</h2>
+
+<div class="goalCard">
+
+<h3 id="schoolName">
+
+東京都市大学
+
+</h3>
+
+<p>
+
+今日の積み重ねが、未来の自分をつくる🌸
+
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>💖 今日の応援</h2>
+
+<p id="quote">
+
+「1日1%成長すれば、1年後には大きな力になる。」
+
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+🌸 Study Bloom
+
+<br>
+
+Made with ❤️ for your dreams.
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
